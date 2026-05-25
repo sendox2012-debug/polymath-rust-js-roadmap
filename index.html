@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Polymath OS 3D</title>
+        <link rel="stylesheet" href="style.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+            rel="stylesheet"
+        />
+    </head>
+    <body>
+        <div class="scene-container">
+            <div class="scene" id="scene">
+                <div class="cube" id="cube">
+                    <div class="cube-face cube-face--front">
+                        <div class="face-content">
+                            <h2 class="face-title">🦀 Основы Rust</h2>
+                            <div
+                                class="stages-grid"
+                                id="face-front-stages"
+                            ></div>
+                        </div>
+                    </div>
+                    <div class="cube-face cube-face--back">
+                        <div class="face-content">
+                            <h2 class="face-title">🔧 Продвинутый Rust</h2>
+                            <div
+                                class="stages-grid"
+                                id="face-back-stages"
+                            ></div>
+                        </div>
+                    </div>
+                    <div class="cube-face cube-face--right">
+                        <div class="face-content">
+                            <h2 class="face-title">🌐 WebAssembly</h2>
+                            <div
+                                class="stages-grid"
+                                id="face-right-stages"
+                            ></div>
+                        </div>
+                    </div>
+                    <div class="cube-face cube-face--left">
+                        <div class="face-content">
+                            <h2 class="face-title">⚡ Tauri & Desktop</h2>
+                            <div
+                                class="stages-grid"
+                                id="face-left-stages"
+                            ></div>
+                        </div>
+                    </div>
+                    <div class="cube-face cube-face--top">
+                        <div class="face-content">
+                            <h2 class="face-title">🚀 Backend & Async</h2>
+                            <div class="stages-grid" id="face-top-stages"></div>
+                        </div>
+                    </div>
+                    <div class="cube-face cube-face--bottom">
+                        <div class="face-content">
+                            <h2 class="face-title">🔗 Интеграция</h2>
+                            <div
+                                class="stages-grid"
+                                id="face-bottom-stages"
+                            ></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="controls">
+                <button class="control-btn" id="rotate-left">◀</button>
+                <button class="control-btn" id="rotate-right">▶</button>
+                <button class="control-btn" id="rotate-up">▲</button>
+                <button class="control-btn" id="rotate-down">▼</button>
+                <button class="control-btn" id="reset-view">⟲ Сброс</button>
+            </div>
+
+            <div class="progress-panel">
+                <div class="progress-header">
+                    <span>Прогресс</span>
+                    <span id="progress-percent">0%</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progress-fill"></div>
+                </div>
+                <div class="progress-stats">
+                    <span id="completed-count">0/18 выполнено</span>
+                </div>
+            </div>
+
+            <div class="instructions">
+                <p>🖱️ Перетаскивайте куб • Кликайте на карточки</p>
+            </div>
+        </div>
+
+        <div class="modal-overlay" id="modal-overlay">
+            <div class="modal" id="modal">
+                <button class="modal-close" id="modal-close">×</button>
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <span class="modal-stage-number" id="modal-stage-number"
+                            >Этап 1</span
+                        >
+                        <h2 class="modal-title" id="modal-title">Заголовок</h2>
+                    </div>
+                    <div class="modal-body">
+                        <div class="modal-section">
+                            <h3>📖 Описание</h3>
+                            <p id="modal-description"></p>
+                        </div>
+                        <div class="modal-section">
+                            <h3>🎯 Цели</h3>
+                            <ul class="modal-goals" id="modal-goals"></ul>
+                        </div>
+                        <div class="modal-section">
+                            <h3>📚 Ресурсы</h3>
+                            <div
+                                class="modal-resources"
+                                id="modal-resources"
+                            ></div>
+                        </div>
+                        <div class="modal-section">
+                            <h3>⏱️ Время</h3>
+                            <p id="modal-time"></p>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button
+                            class="modal-btn modal-btn--complete"
+                            id="modal-complete"
+                        >
+                            ✓ Отметить как выполненное
+                        </button>
+                        <button
+                            class="modal-btn modal-btn--cancel"
+                            id="modal-cancel"
+                        >
+                            Закрыть
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="login-screen" id="login-screen">
+            <div class="login-content">
+                <h1 class="login-title">
+                    Polymath OS <span class="version">v3.0</span>
+                </h1>
+                <p class="login-subtitle">Интерактивная 3D карта обучения</p>
+                <div class="login-input-group">
+                    <input
+                        type="text"
+                        id="username"
+                        placeholder="Введите ваше имя"
+                        maxlength="20"
+                    />
+                    <button id="login-btn">Начать</button>
+                </div>
+            </div>
+        </div>
+
+        <script src="script.js"></script>
+    </body>
+</html>
